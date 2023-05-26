@@ -17,35 +17,33 @@
             height: 100%;
             z-index: -1;
             overflow: hidden;
-            pointer-events: none;
         }
     </style>
 </head>
 <body>
     <div id="fullscreen">
-        <video id="video" autoplay loop></video>
+        <div id="video-container"></div>
         <audio id="audio" autoplay loop></audio>
     </div>
 
     <script>
-        var videos = ["v1", "v2", "v3"]; // Video- oder GIF-Dateinamen
-        var audios = ["a1", "a2", "a3"]; // Audiodateinamen
+        var videos = ["v1.gif", "v2.gif", "v3.gif"]; // Video- oder GIF-Dateinamen
+        var audios = ["a1.m4a", "a2.m4a", "a3.m4a"]; // Audiodateinamen
 
         function getRandomItem(array) {
             return array[Math.floor(Math.random() * array.length)];
         }
 
         function playRandomFiles() {
-            var videoElement = document.getElementById("video");
+            var videoContainer = document.getElementById("video-container");
             var audioElement = document.getElementById("audio");
 
             var randomVideo = getRandomItem(videos);
             var randomAudio = getRandomItem(audios);
 
-            videoElement.src = "video/" + randomVideo + ".gif"; // Pfade zu den Video/GIF-Dateien anpassen
-            audioElement.src = "audio/" + randomAudio + ".m4a"; // Pfade zu den Audiodateien anpassen
+            videoContainer.innerHTML = '<video id="video" autoplay loop><source src="video/' + randomVideo + '" type="video/mp4"></video>'; // Pfade zu den Video/GIF-Dateien anpassen
+            audioElement.src = "audio/" + randomAudio; // Pfade zu den Audiodateien anpassen
 
-            videoElement.load();
             audioElement.load();
         }
 
