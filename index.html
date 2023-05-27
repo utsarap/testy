@@ -41,7 +41,7 @@
             var randomVideo = getRandomItem(videos);
             var randomAudio = getRandomItem(audios);
 
-            videoContainer.innerHTML = '<video id="video" autoplay loop><source src="video/' + randomVideo + '" type="video/mp4"></video>'; // Pfade zu den Video/GIF-Dateien anpassen
+            videoContainer.innerHTML = '<video id="video" autoplay loop><source src="video/' + randomVideo + '" type="video/gif"></video>'; // Pfade zu den Video/GIF-Dateien anpassen
             audioElement.src = "audio/" + randomAudio; // Pfade zu den Audiodateien anpassen
 
             audioElement.load();
