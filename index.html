@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        #video-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+    <script>
+        function playRandomVideo() {
+            var videoFolder = "video/";
+            var audioFolder = "audio/";
+
+            var videoFiles = ["video1.mp4", "video2.mp4", "video3.mp4"]; // Liste der Video-Dateien
+            var audioFiles = ["audio1.mp3", "audio2.mp3", "audio3.mp3"]; // Liste der Audio-Dateien
+
+            var randomVideo = videoFiles[Math.floor(Math.random() * videoFiles.length)];
+            var randomAudio = audioFiles[Math.floor(Math.random() * audioFiles.length)];
+
+            var videoElement = document.getElementById("random-video");
+            var audioElement = document.getElementById("random-audio");
+
+            videoElement.src = videoFolder + randomVideo;
+            audioElement.src = audioFolder + randomAudio;
+
+            videoElement.load();
+            audioElement.load();
+            videoElement.play();
+            audioElement.play();
+        }
+    </script>
+</head>
+<body onclick="playRandomVideo()">
+    <div id="video-container">
+        <video id="random-video" autoplay controls></video>
+        <audio id="random-audio" autoplay controls></audio>
+    </div>
+</body>
+</html>
